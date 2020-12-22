@@ -32,23 +32,24 @@ const arrPhrases = [
 ]
  
 //return a random phrase from an array
-function getRandomPhraseAsArray (arr) {
-    let randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
-    return arr;
-};
 
-let randomPhrase = getRandomPhraseAsArray(arrPhrases); 
+let randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
+
+ 
+
+let randomPhraseFinal = getRandomPhraseAsArray(arrPhrases); 
 
 
 //adds the letters of a string to the display
 function addPhraseToDispaly (arr){
+    let intialPhrase = '';
+    intialPhrase = getRandomPhraseAsArray(arrPhrases);
     //add li to the ul
     for (let i = 0; i < arr.length; i++) {
-        
         let list = document.createElement('li');
         list.textContent = arr[i];
         ul.appendChild(list);
-            if( arr === ' '){
+            if( arr === '  '){
             list.className = 'space';
             } else {
             list.className = 'letter';
@@ -56,7 +57,7 @@ function addPhraseToDispaly (arr){
     }
 };
 let displayPhrase = getRandomPhraseAsArray();
-addPhraseToDispaly(randomPhrase);
+addPhraseToDispaly(randomPhraseFinal);
 
 
 /*

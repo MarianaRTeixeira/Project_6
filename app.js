@@ -1,9 +1,10 @@
 // Add needed variables
 const querty = document.getElementById('querty');
 const phrase = document.getElementById('phrase');
+const ul = phrase.querySelector('ul');
 const startBtn = document.querySelector('a.btn__reset');
 const overlay = document.getElementById('overlay');
-const ul = phrase.querySelector('ul')
+
 let score = 0
 
 

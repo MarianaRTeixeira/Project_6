@@ -1,9 +1,9 @@
 // Add needed variables
 const querty = document.getElementById('querty');
 const phrase = document.getElementById('phrase');
-const ul  = phrase.firstElementChild; //to return all the nodes
 const startBtn = document.querySelector('a.btn__reset');
 const overlay = document.getElementById('overlay');
+const ul = phrase.querySelector('ul')
 let score = 0
 
 
@@ -32,27 +32,48 @@ const arrPhrases = [
 ]
  
 //return a random phrase from an array
-const getRandomPhraseAsArray = (arr) => {
+function getRandomPhraseAsArray (arr) {
     let randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
-    return arr[randomPhrase];
+    return arr;
 };
 
+let randomPhrase = getRandomPhraseAsArray(arrPhrases); 
+
+
 //adds the letters of a string to the display
-const addPhraseToDispaly = arr => {};
+function addPhraseToDispaly (arr){
+    //add li to the ul
+    for (let i = 0; i < arr.length; i++) {
+        
+        let list = document.createElement('li');
+        list.textContent = arr[i];
+        ul.appendChild(list);
+            if( arr === ' '){
+            list.className = 'space';
+            } else {
+            list.className = 'letter';
+            }
+    }
+};
+let displayPhrase = getRandomPhraseAsArray();
+addPhraseToDispaly(randomPhrase);
 
 
-//check if a etter is the place
-const checkLetter = button => {};
+/*
 
-//check if the game has been won or lost
-const checkWin = () => {};
+// //check if a etter is the place
+// const checkLetter = button => {};
 
-//listen for the start game button to be pressed
-startButton.addEventListener('click', () => { 
+// //check if the game has been won or lost
+// const checkWin = () => {};
 
-});
+// //listen for the start game button to be pressed
+// startButton.addEventListener('click', () => { 
 
-//listen for the onscreen Keyboard to be clicked
-querty.addEventListener('click', e => {
-    
-});
+// });
+
+// //listen for the onscreen Keyboard to be clicked
+// querty.addEventListener('click', e => {
+
+// });
+*/

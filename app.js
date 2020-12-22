@@ -32,35 +32,32 @@ const arrPhrases = [
 ]
  
 //return a random phrase from an array
+function getRandomPhraseAsArray (arr) {
+    const randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
+    return arr;
+    
+};
 
-let randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
-
- 
-
-let randomPhraseFinal = getRandomPhraseAsArray(arrPhrases); 
+const randomPhrase = getRandomPhraseAsArray(arrPhrases); 
 
 
 //adds the letters of a string to the display
 function addPhraseToDispaly (arr){
-    let intialPhrase = '';
-    intialPhrase = getRandomPhraseAsArray(arrPhrases);
     //add li to the ul
     for (let i = 0; i < arr.length; i++) {
         let list = document.createElement('li');
         list.textContent = arr[i];
         ul.appendChild(list);
-            if( arr === '  '){
+            if( arr === ' '){
             list.className = 'space';
             } else {
             list.className = 'letter';
             }
     }
 };
-let displayPhrase = getRandomPhraseAsArray();
-addPhraseToDispaly(randomPhraseFinal);
+let displayPhrase = getRandomPhraseAsArray(arrPhrases);
+addPhraseToDispaly(randomPhrase);
 
-
-/*
 
 // //check if a etter is the place
 // const checkLetter = button => {};
@@ -77,4 +74,3 @@ addPhraseToDispaly(randomPhraseFinal);
 // querty.addEventListener('click', e => {
 
 // });
-*/

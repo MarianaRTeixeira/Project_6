@@ -19,7 +19,7 @@ startBtn.addEventListener('click', () => {
 });
 
 //Create an array named phrases
-const arrPhrases = [
+/* const arrPhrases = [
     'Iron Man',
     'Captain America The First Avenger',
     'Guardians of the Galaxy',
@@ -33,13 +33,12 @@ const arrPhrases = [
 ]
  
 //return a random phrase from an array
-function getRandomPhraseAsArray (arr) {
-    const randomPhrase = Math.floor((Math.random() * arrPhrases.lenght));
-    return arr;
-    
+function getRandomPhraseAsArray(arr) {
+    let randomPhrase = Math.floor((Math.random() * arr.lenght));
+    return arr[randomPhrase];
 };
 
-const randomPhrase = getRandomPhraseAsArray(arrPhrases); 
+let randomPhrase = getRandomPhraseAsArray(arrPhrases);
 
 
 //adds the letters of a string to the display
@@ -57,8 +56,43 @@ function addPhraseToDispaly (arr){
     }
 };
 let displayPhrase = getRandomPhraseAsArray(arrPhrases);
-addPhraseToDispaly(randomPhrase);
+addPhraseToDispaly(randomPhrase); */
 
+
+const arrPhrases = [
+    'Iron Man',
+    'Captain America The First Avenger',
+    'Guardians of the Galaxy',
+    'The Incredible Hulk',
+    'Avengers EndGame',
+    'Doctor Stange',
+    'Black Panther',
+    'SpiderMan',
+    'Black Widow',
+    'Captain Marvel'
+]
+
+function getRandomPhraseAsArray(arr) {
+    let nPhrase = Math.floor((Math.random() * arr.length));
+    return nPhrase;
+};
+
+let nPhrase = getRandomPhraseAsArray(arrPhrases);
+
+function addPhraseToDispaly(arr){
+    for (let i = 0; i < arr.length; i++) {
+        let list = document.createElement('li');
+        list.textContent = arr[i];
+        ul.appendChild(list);
+            if( arr[i] === ' '){
+            list.className = 'space';
+            } else {
+            list.className = 'letter';
+            }
+    }
+};
+let displayPhrase = getRandomPhraseAsArray(arrPhrases);
+addPhraseToDispaly(arrPhrases[nPhrase]);
 
 // //check if a etter is the place
 // const checkLetter = button => {};

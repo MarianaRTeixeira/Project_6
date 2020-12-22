@@ -49,7 +49,7 @@ function addPhraseToDispaly (arr){
         let list = document.createElement('li');
         list.textContent = arr[i];
         ul.appendChild(list);
-            if( arr === ' '){
+            if( arr[i] === ' '){
             list.className = 'space';
             } else {
             list.className = 'letter';

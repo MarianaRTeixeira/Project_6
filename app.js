@@ -19,46 +19,6 @@ startBtn.addEventListener('click', () => {
 });
 
 //Create an array named phrases
-/* const arrPhrases = [
-    'Iron Man',
-    'Captain America The First Avenger',
-    'Guardians of the Galaxy',
-    'The Incredible Hulk',
-    'Avengers EndGame',
-    'Doctor Stange',
-    'Black Panther',
-    'SpiderMan',
-    'Black Widow',
-    'Captain Marvel'
-]
- 
-//return a random phrase from an array
-function getRandomPhraseAsArray(arr) {
-    let randomPhrase = Math.floor((Math.random() * arr.lenght));
-    return arr[randomPhrase];
-};
-
-let randomPhrase = getRandomPhraseAsArray(arrPhrases);
-
-
-//adds the letters of a string to the display
-function addPhraseToDispaly (arr){
-    //add li to the ul
-    for (let i = 0; i < arr.length; i++) {
-        let list = document.createElement('li');
-        list.textContent = arr[i];
-        ul.appendChild(list);
-            if( arr[i] === ' '){
-            list.className = 'space';
-            } else {
-            list.className = 'letter';
-            }
-    }
-};
-let displayPhrase = getRandomPhraseAsArray(arrPhrases);
-addPhraseToDispaly(randomPhrase); */
-
-
 const arrPhrases = [
     'Iron Man',
     'Captain America The First Avenger',
@@ -94,7 +54,7 @@ function addPhraseToDispaly(arr){
 let displayPhrase = getRandomPhraseAsArray(arrPhrases);
 addPhraseToDispaly(arrPhrases[nPhrase]);
 
-// //check if a etter is the place
+// //check if a Letter is the place
 // const checkLetter = button => {};
 
 // //check if the game has been won or lost

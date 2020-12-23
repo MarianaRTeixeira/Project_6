@@ -55,7 +55,30 @@ let displayPhrase = getRandomPhraseAsArray(arrPhrases);
 addPhraseToDispaly(arrPhrases[nPhrase]);
 
 // //check if a Letter is the place
-// const checkLetter = button => {};
+function checkLetter(btn) {
+    let check = document.getElementsByClassName('.letter');
+    let match = null;
+
+    for (i = 0; i < check.length; i++) {
+          if(check[i].textContent,toLowerCase() === btn.textContent) {
+              check[i].className = 'show';
+              match = check[i].textContent;
+          } 
+    }
+    return match;
+console.log(btn)
+}
+/* Sample
+let names = 'Iron Man';
+let letter = 'm';
+
+for (let i = 0; i < names.length; i++) {
+    const ln = names[i];
+    if (ln.toLowerCase() == letter){
+        console.log(ln);
+    }
+} */
+
 
 // //check if the game has been won or lost
 // const checkWin = () => {};

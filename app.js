@@ -70,9 +70,10 @@ function checkLetter(btn) {
             //match = check[i].textContent.toLowerCase();
             // Debug
             //console.log(match);
+            return true;
         } 
     }
-    return 'ok'; //match;  
+
 }
 
 // //listen for the onscreen Keyboard to be clicked
@@ -80,15 +81,18 @@ qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
         e.target.disable = true;
+
+        let btnCheck = checkLetter(e.target);
+        console.log(btnCheck);
+        
+        if (btnCheck != true){
+            console.log('miss!');
+            hearts[missed].src ="images/lostHeart.png";
+            missed += 1;
+            // se nao ha mais hearts stop!
+        }
     } else  { 
         alert('Please choose a letter');
-    }
-    let btnCheck = checkLetter(e.target);
-    if (btnCheck === 'null'){
-        
-     
-        missed += 1;
-        hearts[missed].src ="images/lostHeart.png";
     }
    // checkWin();  
 }); 

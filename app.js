@@ -70,7 +70,7 @@ function checkLetter(btn) {
             //match = check[i].textContent.toLowerCase();
             // Debug
             //console.log(match);
-            return true;
+            return match = true;
         } 
     }
 
@@ -85,7 +85,7 @@ qwerty.addEventListener('click', (e) => {
         let btnCheck = checkLetter(e.target);
         console.log(btnCheck);
         
-        if (btnCheck != true){
+        if (btnCheck == null){
             console.log('miss!');
             hearts[missed].src ="images/lostHeart.png";
             missed += 1;

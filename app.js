@@ -81,18 +81,18 @@ qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
         e.target.disable = true;
-
-        let btnCheck = checkLetter(e.target);
-        // Debug
-        // console.log(btnCheck);
-        
-        if (btnCheck == null){
-            console.log('miss!');
-            hearts[missed].src ="images/lostHeart.png";
-            missed += 1;
-        }
     } else  { 
         alert('Please choose a letter');
+    }
+    
+    let btnCheck = checkLetter(e.target);
+    // Debug
+    // console.log(btnCheck);
+    
+    if (btnCheck == null){
+        console.log('miss!');
+        hearts[missed].src ="images/lostHeart.png";
+        missed += 1;
     }
 }); 
 

@@ -51,7 +51,7 @@ function addPhraseToDispaly(arr){
             } else {
                 list.className = 'letter';
                 // Debug
-                //console.log(list);
+                // console.log(list);
             }
     }
 };
@@ -69,11 +69,11 @@ function checkLetter(btn) {
             check[i].className = 'show';
             //match = check[i].textContent.toLowerCase();
             // Debug
-            //console.log(match);
-            return match = true;
-        } 
+            // console.log(match);
+            match = true;
+        }
     }
-
+    return match;
 }
 
 // //listen for the onscreen Keyboard to be clicked
@@ -83,24 +83,25 @@ qwerty.addEventListener('click', (e) => {
         e.target.disable = true;
 
         let btnCheck = checkLetter(e.target);
-        console.log(btnCheck);
+        // Debug
+        // console.log(btnCheck);
         
         if (btnCheck == null){
             console.log('miss!');
             hearts[missed].src ="images/lostHeart.png";
             missed += 1;
-            // se nao ha mais hearts stop!
         }
     } else  { 
         alert('Please choose a letter');
     }
-   // checkWin();  
 }); 
 
 
 // //check if the game has been won or lost
 
-//function  checkWin = () => {};
+function  checkWin() {
+
+};
 
 // //listen for the start game button to be pressed
 // startButton.addEventListener('click', () => { 

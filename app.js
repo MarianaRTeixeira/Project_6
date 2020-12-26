@@ -100,15 +100,11 @@ qwerty.addEventListener('click', (e) => {
 // //check if the game has been won or lost
 
 function  checkWin() {
-
+    let letter = document.getElementsByClassName('letter');
+    let show = document.getElementsByClassName('show');
+    if (letter.lenght === show.lenght){
+        overlay.className = 'win';
+        overlay.style.display = 'flex';
+    }
 };
 
-// //listen for the start game button to be pressed
-// startButton.addEventListener('click', () => { 
-
-// });
-
-// //listen for the onscreen Keyboard to be clicked
-// querty.addEventListener('click', e => {
-
-// });

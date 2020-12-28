@@ -35,11 +35,12 @@ const arrPhrases = [
 ]
 
 function getRandomPhraseAsArray(arr) {
-    let nPhrase = Math.floor((Math.random() * arr.length));
+    let nPhrase = (Math.floor(Math.random() * arr.length));
     return nPhrase;
 };
 
 let nPhrase = getRandomPhraseAsArray(arrPhrases);
+
 
 function addPhraseToDispaly(arr){
     for (let i = 0; i < arr.length; i++) {
@@ -55,8 +56,8 @@ function addPhraseToDispaly(arr){
             }
     }
 };
-
 addPhraseToDispaly(arrPhrases[nPhrase]);
+
 
 // //check if a Letter is the place
 function checkLetter(btn) {
@@ -67,11 +68,12 @@ function checkLetter(btn) {
         // if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
         if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
             check[i].className = 'show';
+            
             //match = check[i].textContent.toLowerCase();
             // Debug
             // console.log(match);
             match = true;
-        }
+        } 
     }
     return match;
 }
@@ -80,20 +82,20 @@ function checkLetter(btn) {
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
-        e.target.disable = true;
+        e.disable = true;
     } else  { 
         alert('Please choose a letter');
     }
-    
     let btnCheck = checkLetter(e.target);
     // Debug
     // console.log(btnCheck);
-    
     if (btnCheck == null){
         console.log('miss!');
         hearts[missed].src ="images/lostHeart.png";
         missed += 1;
+        checkWin()
     }
+   
 }); 
 
 
@@ -102,9 +104,17 @@ qwerty.addEventListener('click', (e) => {
 function  checkWin() {
     let letter = document.getElementsByClassName('letter');
     let show = document.getElementsByClassName('show');
+    let h2 = document.querySelector('.title');
     if (letter.lenght === show.lenght){
         overlay.className = 'win';
         overlay.style.display = 'flex';
+        h2.textContent = 'You win. Marvel fan here';
+       
+    } else if ( missed > 4) {
+        overlay.className = 'lose';
+        overlay.style.display = 'flex';
+        h2.textContent = 'You lose. Try again';
+      
     }
 };
 

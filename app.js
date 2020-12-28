@@ -68,7 +68,6 @@ function checkLetter(btn) {
         // if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
         if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
             check[i].className = 'show';
-            
             //match = check[i].textContent.toLowerCase();
             // Debug
             // console.log(match);
@@ -92,29 +91,26 @@ qwerty.addEventListener('click', (e) => {
     if (btnCheck == null){
         console.log('miss!');
         hearts[missed].src ="images/lostHeart.png";
-        missed += 1;
-        checkWin()
+        missed += 1; 
     }
-   
+    checkWin()
 }); 
 
 
 // //check if the game has been won or lost
 
 function  checkWin() {
-    let letter = document.getElementsByClassName('letter');
-    let show = document.getElementsByClassName('show');
-    let h2 = document.querySelector('.title');
+    let letter = document.querySelector('.letter');
+    let show = document.querySelector('.show');
+    
     if (letter.lenght === show.lenght){
         overlay.className = 'win';
         overlay.style.display = 'flex';
-        h2.textContent = 'You win. Marvel fan here';
+        document.querySelector('h2').textContent = "you win"
        
     } else if ( missed > 4) {
         overlay.className = 'lose';
         overlay.style.display = 'flex';
-        h2.textContent = 'You lose. Try again';
-      
+        document.querySelector('h2').textContent = "you lose"
     }
 };
-

@@ -1,19 +1,26 @@
-const querty = document.getElementById('querty');
+// Add needed variables
+const querty = document.querySelector('#querty');
 const phrase = document.getElementById('phrase');
-let missed = 0;
-
-const startBtn = document.querySelector('a.btn__reset'); //dont use spaces
-const overlay = document.getElementById('overlay');
-
 const ul = phrase.querySelector('ul');
+const startBtn = document.querySelector('a.btn__reset');
+const overlay = document.getElementById('overlay');
+const button = document.querySelector('button');
+const hearts = document.querySelectorAll('.tries img');
+let missed = 0;
+let score = 0
 
-//3.Attach a event listener to the “Start Game” button to hide the start screen overlay.
 
+//Add some extra text in the first page
+/* const startPhrase = document.getElementById('overlay');
+const startText = document.createTextNode('Are you ready?');
+startPhrase.appendChild(startText); */
+
+//Attach an event listener to the “Start Game” button to hide the start
 startBtn.addEventListener('click', () => {
-   overlay.style.display = 'none'; 
+    overlay.style.display = 'none';
 });
 
-//4. Create a phrases array that contains at least 5 different phrases as strings.
+//Create an array named phrases
 const arrPhrases = [
     'Iron Man',
     'Captain America The First Avenger',
@@ -25,9 +32,7 @@ const arrPhrases = [
     'SpiderMan',
     'Black Widow',
     'Captain Marvel'
-];
-
-//5. Create a getRandomPhraseAsArray function.
+]
 
 function getRandomPhraseAsArray(arr) {
     let nPhrase = (Math.floor(Math.random() * arr.length));
@@ -35,10 +40,7 @@ function getRandomPhraseAsArray(arr) {
 };
 
 let nPhrase = getRandomPhraseAsArray(arrPhrases);
-/* debug
-console.log(nPhrase); */
 
-//6. Set the game display
 
 function addPhraseToDispaly(arr){
     for (let i = 0; i < arr.length; i++) {
@@ -49,33 +51,33 @@ function addPhraseToDispaly(arr){
                 list.className = 'space';
             } else {
                 list.className = 'letter';
-                /* Debug
-                 console.log(list); */
+                // Debug
+                // console.log(list);
             }
     }
 };
-addPhraseToDispaly(arrPhrases[nPhrase]); 
+addPhraseToDispaly(arrPhrases[nPhrase]);
 
-/* debug 
-console.log(arrPhrases[nPhrase]); */
 
-//7. Create a checkLetter function
+// //check if a Letter is the place
 function checkLetter(btn) {
     let check = document.getElementsByClassName('letter');
     let match = null;
 
-    for (let i = 0; i < check.length; index++) {
+    for (i = 0; i < check.length; i++) {
+        // if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
         if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
             check[i].className = 'show';
-            show.style.transition = '0.5s ease-in-out'
             match = check[i].textContent.toLowerCase();
-            /* Debug
-             console.log(match);*/
-            return match;
-        }    
-    } 
+            // Debug
+            // console.log(match);
+            match = true;
+        } 
+    }
+    return match;
 }
-//8. Add an event listener to the keyboard.
+
+// //listen for the onscreen Keyboard to be clicked
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
@@ -94,3 +96,24 @@ qwerty.addEventListener('click', (e) => {
     }
     checkWin()
 }); 
+
+
+// //check if the game has been won or lost
+
+function  checkWin() {
+    let letter = document.querySelector('.letter');
+    let show = document.querySelector('.show');
+for (let i = 0; i < show.length; i++) {
+   
+    if (letter.lenght === show.lenght){
+        if (missed < 4) {
+        overlay.className = 'win';
+        overlay.style.display = 'flex';
+        document.querySelector('h2').textContent = "Winner";
+        } else {
+        overlay.className = 'lose';
+        overlay.style.display = 'flex';
+        document.querySelector('h2').textContent = "you lose"
+    }
+    }
+}};

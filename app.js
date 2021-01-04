@@ -103,7 +103,6 @@ function  checkWin() {
     // Debug
     // console.log(show);
 for (let i = 0; i < show.length; i++) {
-   
     if (letter.lenght === show.lenght){
         overlay.className = 'win';
         overlay.style.display = 'flex';
@@ -112,6 +111,5 @@ for (let i = 0; i < show.length; i++) {
         overlay.className = 'lose';
         overlay.style.display = 'flex';
         document.querySelector('h2').textContent = "you lose"
-    
     }
 }};

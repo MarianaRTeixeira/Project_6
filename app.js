@@ -9,6 +9,7 @@ const ul = phrase.querySelector('ul');
 
 
 const hearts = document.querySelectorAll('.tries img');
+
 //3.Attach a event listener to the “Start Game” button to hide the start screen overlay.
 
 startBtn.addEventListener('click', () => {
@@ -73,7 +74,7 @@ function checkLetter(btn) {
             match = check[i].textContent.toLowerCase();
             /* Debug
              console.log(match);*/
-             match = true;
+            match = true;
         }    
     } 
     return match;
@@ -101,13 +102,14 @@ function  checkWin() {
     let letter = document.getElementsByClassName('letter');
     let show = document.getElementsByClassName('show');
     // Debug
-    // console.log(show);
+    //console.log(show);
 for (let i = 0; i < show.length; i++) {
-    if (letter.lenght === show.lenght){
+    
+    if (letter === show.lenght){
         overlay.className = 'win';
         overlay.style.display = 'flex';
         document.querySelector('h2').textContent = "Winner";
-        } else if (hearts[missed] > 4 ) {
+        } else if (missed >= 5) {
         overlay.className = 'lose';
         overlay.style.display = 'flex';
         document.querySelector('h2').textContent = "you lose"

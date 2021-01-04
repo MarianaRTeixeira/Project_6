@@ -7,6 +7,8 @@ const overlay = document.getElementById('overlay');
 
 const ul = phrase.querySelector('ul');
 
+
+const hearts = document.querySelectorAll('.tries img');
 //3.Attach a event listener to the “Start Game” button to hide the start screen overlay.
 
 startBtn.addEventListener('click', () => {
@@ -61,27 +63,28 @@ console.log(arrPhrases[nPhrase]); */
 
 //7. Create a checkLetter function
 function checkLetter(btn) {
+    // btn.disable = true;
     let check = document.getElementsByClassName('letter');
     let match = null;
 
-    for (let i = 0; i < check.length; index++) {
+    for (let i = 0; i < check.length; i++) {
         if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
             check[i].className = 'show';
-            show.style.transition = '0.5s ease-in-out'
             match = check[i].textContent.toLowerCase();
             /* Debug
              console.log(match);*/
-            return match;
+             match = true;
         }    
     } 
+    return match;
 }
 //8. Add an event listener to the keyboard.
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
-        e.disable = true;
+        e.target.disable = true;
     } else  { 
-        alert('Please choose a letter');
+        console.log('Please choose a letter');
     }
     let btnCheck = checkLetter(e.target);
     // Debug
@@ -89,8 +92,26 @@ qwerty.addEventListener('click', (e) => {
     if (btnCheck == null){
         console.log('miss!');
         hearts[missed].src ="images/lostHeart.png";
-        missed += 1; 
-        
+        missed += 1;    
     }
     checkWin()
 }); 
+
+function  checkWin() {
+    let letter = document.getElementsByClassName('letter');
+    let show = document.getElementsByClassName('show');
+    // Debug
+    // console.log(show);
+for (let i = 0; i < show.length; i++) {
+   
+    if (letter.lenght === show.lenght){
+        overlay.className = 'win';
+        overlay.style.display = 'flex';
+        document.querySelector('h2').textContent = "Winner";
+        } else if (hearts[missed] > 4 ) {
+        overlay.className = 'lose';
+        overlay.style.display = 'flex';
+        document.querySelector('h2').textContent = "you lose"
+    
+    }
+}};

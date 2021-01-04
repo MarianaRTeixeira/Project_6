@@ -56,6 +56,7 @@ function addPhraseToDispaly(arr){
             }
     }
 };
+
 addPhraseToDispaly(arrPhrases[nPhrase]); 
 
 /* debug 
@@ -90,7 +91,7 @@ qwerty.addEventListener('click', (e) => {
     let btnCheck = checkLetter(e.target);
     // Debug
     // console.log(btnCheck);
-    if (btnCheck === null){
+    if (e.target.tagName == 'BUTTON' && btnCheck === null){
         console.log('miss!');
         hearts[missed].src="images/lostHeart.png";
         missed += 1; 
@@ -114,5 +115,4 @@ qwerty.addEventListener('click', (e) => {
             overlay.style.display = 'flex';
             document.querySelector('h2').textContent = "you lose"
         }
-
 }; 

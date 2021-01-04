@@ -7,7 +7,6 @@ const overlay = document.getElementById('overlay');
 
 const ul = phrase.querySelector('ul');
 
-
 const hearts = document.querySelectorAll('.tries img');
 
 //3.Attach a event listener to the “Start Game” button to hide the start screen overlay.
@@ -23,7 +22,7 @@ const arrPhrases = [
     'Guardians of the Galaxy',
     'The Incredible Hulk',
     'Avengers EndGame',
-    'Doctor Stange',
+    'Doctor Strange',
     'Black Panther',
     'SpiderMan',
     'Black Widow',
@@ -71,7 +70,7 @@ function checkLetter(btn) {
     for (let i = 0; i < check.length; i++) {
         if(btn.textContent.toLowerCase() === check[i].textContent.toLowerCase()) {
             check[i].className = 'show';
-            match = check[i].textContent.toLowerCase();
+            match = check[i];
             /* Debug
              console.log(match);*/
             match = true;
@@ -79,39 +78,41 @@ function checkLetter(btn) {
     } 
     return match;
 }
+
 //8. Add an event listener to the keyboard.
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
-        e.target.disable = true;
+        e.disable = true;
     } else  { 
-        console.log('Please choose a letter');
+        alert('Please choose a letter');
     }
     let btnCheck = checkLetter(e.target);
     // Debug
     // console.log(btnCheck);
-    if (btnCheck == null){
+    if (btnCheck === null){
         console.log('miss!');
-        hearts[missed].src ="images/lostHeart.png";
-        missed += 1;    
+        hearts[missed].src="images/lostHeart.png";
+        missed += 1; 
+    } else {
+        console.log('got it')
     }
     checkWin()
 }); 
 
-function  checkWin() {
-    let letter = document.getElementsByClassName('letter');
-    let show = document.getElementsByClassName('show');
+ function  checkWin() {
+    let letterFound = document.querySelectorAll('.letter');
+    let show = document.getElementsByClassName('.show');
     // Debug
     //console.log(show);
-for (let i = 0; i < show.length; i++) {
-    
-    if (letter === show.lenght){
-        overlay.className = 'win';
-        overlay.style.display = 'flex';
-        document.querySelector('h2').textContent = "Winner";
-        } else if (missed >= 5) {
-        overlay.className = 'lose';
-        overlay.style.display = 'flex';
-        document.querySelector('h2').textContent = "you lose"
-    }
-}};
+        if (letterFound.length === show.length){
+            overlay.className = 'win';
+            overlay.style.display = 'flex';
+            document.querySelector('h2').textContent = "Winner";
+            } else if (missed > 4) {
+            overlay.className = 'lose';
+            overlay.style.display = 'flex';
+            document.querySelector('h2').textContent = "you lose"
+        }
+
+}; 

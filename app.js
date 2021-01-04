@@ -84,7 +84,7 @@ function checkLetter(btn) {
 qwerty.addEventListener('click', (e) => {
     if(e.target.tagName == 'BUTTON'){
         e.target.className = 'chosen';
-        e.disable = true;
+        e.target.disabled = true;
     } else  { 
         alert('Please choose a letter');
     }

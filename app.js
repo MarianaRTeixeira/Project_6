@@ -18,7 +18,7 @@ startBtn.addEventListener('click', () => {
 //4. Create a phrases array that contains at least 5 different phrases as strings.
 const arrPhrases = [
     'Iron Man',
-    'Captain America The First Avenger',
+    'Captain America',
     'Guardians of the Galaxy',
     'The Incredible Hulk',
     'Avengers EndGame',
